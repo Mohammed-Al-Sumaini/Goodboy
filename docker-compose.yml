@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  php-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "root_password"
+      MYSQL_DATABASE: "ITSME"
+      MYSQL_USER: "TheGoodBoy"
+      MYSQL_PASSWORD: "Mohammed"
+    ports:
+      - "3306:3306"
